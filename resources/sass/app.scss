@@ -7,5 +7,29 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-// FontAwesome
-@import "~font-awesome/scss/font-awesome";
+// Fort Awesome
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+
+a{
+    text-decoration: none;
+    &:hover{
+        text-decoration: none;
+    }
+    span.icon-option{
+        display: inline-block;
+        border-radius: 12px;
+        border: 1px solid black;
+        padding: 1rem;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+
+    }
+
+}
