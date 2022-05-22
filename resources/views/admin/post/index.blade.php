@@ -4,6 +4,13 @@
 
     <div class="container">
         <div class="row  justify-content-center">
+
+            @if (session('deleted-message'))
+            <div class="col-12 alert alert-danger" role="alert">
+                {{ session('deleted-message') }}
+            </div>
+            @endif
+
             @foreach ($posts as $post)
 
             <div class="col-md-3 my-4">
@@ -17,6 +24,9 @@
             </div>
 
             @endforeach
+            <div class="col-3 text-center py-3">
+                {{$posts->links() }}
+            </div>
         </div>
     </div>
 

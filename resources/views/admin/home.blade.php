@@ -22,7 +22,7 @@
     <div class="row justify-content-center py-5">
         <div class="col-md-3 text-center">
             <p class="mb-4">Add new Post</p>
-            <a href=""><span class="icon-option"><i class="fa-solid fa-plus"></i></span></a>
+            <a href="{{route('admin.posts.create')}}"><span class="icon-option"><i class="fa-solid fa-plus"></i></span></a>
         </div>
         <div class="col-md-3 text-center">
             <p class="mb-4">Show all Posts</p>
