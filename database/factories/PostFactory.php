@@ -3,6 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\Models\Post;
+use App\User;
 use Faker\Generator as Faker;
 
 $factory->define(Post::class, function (Faker $faker) {
@@ -11,11 +12,10 @@ $factory->define(Post::class, function (Faker $faker) {
     $slug = Str::slug($title, '-');
 
     return [
+        'user_id'=> $faker->unique()->numberBetween(1, User::count()),
         'title' => $title,
         'slug' => $slug,
         'description' => $faker->paragraph,
-        'publish' => 1,
         'photo' => $faker->imageUrl(640, 480, 'post', true),
-        'counter' => 1
     ];
 });
