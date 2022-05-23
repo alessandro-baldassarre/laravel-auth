@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\User;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -27,7 +28,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.post.create');
+        $users = User::all();
+        return view('admin.post.create', compact('users'));
     }
 
     /**
@@ -46,8 +48,6 @@ class PostController extends Controller
                 "title" => "required|min:3|max:50",
                 "description" => "required|min:15",
                 "photo" => "required|min:5",
-                "publish" => "required",
-                "counter" => "required",
             ],
             [
                 "required" => "Non puoi inserire un Post senza :attribute.",
@@ -101,8 +101,6 @@ class PostController extends Controller
                 "title" => "required|min:3|max:50",
                 "description" => "required|min:15",
                 "photo" => "required|min:5",
-                "publish" => "required",
-                "counter" => "required",
             ],
             [
                 "required" => "Non puoi inserire un Post senza :attribute.",
