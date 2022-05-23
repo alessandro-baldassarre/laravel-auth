@@ -6,6 +6,13 @@
         <div class="row p-5">
             <div class="col-12 text-center p-5">
                 <h1>{{$post->title}}</h1>
+
+                @if ($post->user->userInfo)
+                    <h3>{{$post->user->userInfo->address}}</h3>
+                @else
+                    <h3>{{$post->user->name}}</h3>
+                @endif
+
                 <p>{{$post->description}}</p>
                 <div class="d-flex justify-content-center">
                     <a href="{{route('admin.posts.edit', $post)}}" class="btn btn-warning mr-2">Edit</a>
@@ -19,6 +26,16 @@
                             </button>
                     </form>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h5>Other Posts same Author:</h5>
+                @foreach ($post->user->posts as $userPost)
+                    <a href="{{route('admin.posts.show',$userPost)}}">
+                        <h6>{{$userPost->title}}</h6>
+                    </a>
+                @endforeach
             </div>
         </div>
     </div>

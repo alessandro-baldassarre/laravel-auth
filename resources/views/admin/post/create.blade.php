@@ -8,6 +8,15 @@
                 <form action="{{route('admin.posts.store')}}" method="POST">
                     @csrf
                     <div class="form-group">
+                        <label for="user_id">Author</label>
+                        <select name="user_id">
+                            @foreach ($users as $user)
+                            <option value="{{$user->id}}">{{$user->name}}</option>
+
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" class="form-control" id="title" placeholder="Insert title" name="title">
                         @error('title')
@@ -33,24 +42,6 @@
                             {{ $message }}
                         </div>
                     @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="publish">Publish</label>
-                        <input type="number" class="form-control" id="publish" placeholder="Insert image URL" name="publish">
-                        @error('publish')
-                            <div class="alert alert-danger mt-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="counter">Counter</label>
-                        <input type="number" class="form-control" id="counter" placeholder="Insert image URL" name="counter">
-                        @error('counter')
-                            <div class="alert alert-danger mt-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Add new Post</button>

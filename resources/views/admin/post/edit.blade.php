@@ -35,24 +35,6 @@
                         </div>
                     @enderror
                     </div>
-                    <div class="form-group">
-                        <label for="publish">Publish</label>
-                        <input type="number" class="form-control" id="publish" name="publish" value="{{$post->publish}}">
-                        @error('publish')
-                            <div class="alert alert-danger mt-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="counter">Counter</label>
-                        <input type="number" class="form-control" id="counter" name="counter" value="{{$post->counter}}">
-                        @error('counter')
-                            <div class="alert alert-danger mt-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Update Post</button>
                     </div>
