@@ -25,12 +25,15 @@
 @endsection
 
 @section('footer-script')
-    <script type="text/javascript">
+    <script>
      document.getElementById("myForm").addEventListener("submit", function(e) {
 
         e.preventDefault();
 
-        alert("cancel submitting");
+        userConfirmation = window.confirm(`Sei sicuro di voler eliminare ${this.getAttribute('post-title')}?` );
+                if (userConfirmation) {
+                    this.submit();
+                }
 
     });
     </script>
