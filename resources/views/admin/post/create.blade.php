@@ -7,7 +7,7 @@
             <div class="col-md-6">
                 <form action="{{route('admin.posts.store')}}" method="POST">
                     @csrf
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="user_id">Author</label>
                         <select name="user_id">
                             @foreach ($users as $user)
@@ -15,7 +15,7 @@
 
                             @endforeach
                         </select>
-                    </div>
+                    </div> --}}
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" class="form-control" id="title" placeholder="Insert title" name="title">
@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <input type="text" class="form-control" id="description" placeholder="Insert description" name="description">
+                        <textarea class="form-control" id="description" placeholder="Insert description" name="description"></textarea>
                         @error('description')
                             <div class="alert alert-danger mt-2">
                                 {{ $message }}
