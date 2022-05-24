@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\User;
+use Auth;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -28,8 +29,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $users = User::all();
-        return view('admin.post.create', compact('users'));
+        return view('admin.post.create');
     }
 
     /**
@@ -43,6 +43,7 @@ class PostController extends Controller
         $request['slug'] = Str::slug($request->title);
 
         $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
 
         $request->validate([
                 "title" => "required|min:3|max:50",
